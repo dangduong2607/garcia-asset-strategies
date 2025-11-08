@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Garcia Asset Strategies</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Same CSS as index.html */
+    </style>
+</head>
+<body>
+    <!-- Same header as index.html -->
+    
+    <section class="container" style="padding: 50px 0;">
+        <a href="index.html" class="back-to-news"><i class="fas fa-arrow-left"></i> Back to Home</a>
+        <h1 class="section-title">Contact Us</h1>
+        
+        <div class="contact-form">
+            <!-- Replace YOUR_FORMSPREE_ENDPOINT with your actual Formspree endpoint -->
+            <form action="https://formspree.io/f/YOUR_FORMSPREE_ENDPOINT" method="POST" id="contact-form">
+                <div class="form-group">
+                    <label for="name">Name (required)</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email (required)</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message (required)</label>
+                    <textarea id="message" name="message" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label class="form-checkbox">
+                        <input type="checkbox" required>
+                        <span>I confirm that this message is not spam and consent to my contact information being used to respond to this inquiry or for related purposes. (required)</span>
+                    </label>
+                </div>
+                <button type="submit" class="submit-btn">Send Message</button>
+            </form>
+        </div>
+    </section>
+    
+    <!-- Same footer as index.html -->
+    
+    <script>
+        // Mobile menu toggle
+        document.querySelector('.mobile-menu').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+
+        // Form submission handling
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            // Formspree will handle the submission
+            // You can add any custom validation here if needed
+        });
+    </script>
+</body>
+</html>
