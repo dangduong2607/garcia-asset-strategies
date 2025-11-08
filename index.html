@@ -49,10 +49,14 @@
             align-items: center;
         }
 
+        .logo-img {
+            height: 40px;
+            margin-right: 10px;
+        }
+
         .logo h1 {
             font-size: 24px;
             font-weight: bold;
-            margin-left: 10px;
         }
 
         .logo span {
@@ -419,6 +423,137 @@
             color: #666;
         }
 
+        /* Individual News Pages */
+        .news-article {
+            background: white;
+            padding: 40px;
+            border-radius: 4px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            margin-bottom: 50px;
+        }
+
+        .news-article h1 {
+            font-size: 32px;
+            margin-bottom: 20px;
+            color: #1a365d;
+        }
+
+        .news-article .article-meta {
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .news-article h2 {
+            font-size: 24px;
+            margin: 30px 0 15px;
+            color: #1a365d;
+        }
+
+        .news-article p {
+            margin-bottom: 15px;
+            line-height: 1.8;
+        }
+
+        .news-article ul, .news-article ol {
+            margin-bottom: 20px;
+            padding-left: 20px;
+        }
+
+        .news-article li {
+            margin-bottom: 10px;
+        }
+
+        .news-article table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        .news-article th, .news-article td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        .news-article th {
+            background-color: #f5f5f5;
+            font-weight: bold;
+        }
+
+        .back-to-news {
+            display: inline-block;
+            margin-bottom: 30px;
+            color: #1a365d;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .back-to-news i {
+            margin-right: 5px;
+        }
+
+        /* Contact Form Styles */
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 4px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .form-checkbox {
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .form-checkbox input {
+            margin-right: 10px;
+            margin-top: 3px;
+        }
+
+        .submit-btn {
+            background-color: #1a365d;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            width: 100%;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        .submit-btn:hover {
+            background-color: #152642;
+        }
+
         /* Responsive Styles */
         @media (max-width: 992px) {
             .featured-news {
@@ -442,6 +577,21 @@
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background-color: #1a365d;
+                flex-direction: column;
+                padding: 20px;
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .nav-links li {
+                margin: 10px 0;
             }
             
             .mobile-menu {
@@ -482,6 +632,10 @@
                 border-radius: 4px;
                 padding: 12px;
             }
+            
+            .news-article {
+                padding: 20px;
+            }
         }
     </style>
 </head>
@@ -491,15 +645,16 @@
         <div class="container">
             <div class="top-header">
                 <div class="logo">
+                    <img src="https://garciaassetstrategieshome.wordpress.com/wp-content/uploads/2025/10/gas-logo.png?w=1024" alt="Garcia Asset Strategies" class="logo-img">
                     <h1>GARCIA ASSET STRATEGIES <span>Value in Wealth</span></h1>
                 </div>
                 <nav>
                     <ul class="nav-links">
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#news">News</a></li>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="news.html">News</a></li>
                         <li><a href="#about">About</a></li>
-                        <li><a href="#contact">Contact Us</a></li>
-                        <li><a href="#subscribe">Subscribe</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="subscribe.html">Subscribe</a></li>
                     </ul>
                     <div class="mobile-menu">
                         <i class="fas fa-bars"></i>
@@ -514,7 +669,7 @@
         <div class="container">
             <h2>Clear, Engaging Financial Insights</h2>
             <p>Student-led independent equity research providing accessible analysis of markets, companies, and financial developments.</p>
-            <a href="#news" class="cta-button">Explore Our Research</a>
+            <a href="news.html" class="cta-button">Explore Our Research</a>
         </div>
     </section>
 
@@ -531,7 +686,7 @@
                     </div>
                     <h3>Nvidia Exceeds $5 Trillion Market Cap</h3>
                     <p>Nvidia becomes the first public company to exceed a market capitalization of US$5 trillion, gaining an additional trillion dollars in just 79 trading days. Our valuation analysis compares NVDA to industry peers.</p>
-                    <a href="#" class="read-more">Read Full Analysis <i class="fas fa-arrow-right"></i></a>
+                    <a href="nvidia-article.html" class="read-more">Read Full Analysis <i class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
             <div class="side-articles">
@@ -542,7 +697,7 @@
                             <span>October 26, 2025</span>
                         </div>
                         <h4>U.S. September Inflation Lower Than Expected, Stocks Rise</h4>
-                        <a href="#" class="read-more">Read More</a>
+                        <a href="inflation-article.html" class="read-more">Read More</a>
                     </div>
                 </div>
                 <div class="side-article">
@@ -552,7 +707,7 @@
                             <span>October 19, 2025</span>
                         </div>
                         <h4>Understanding BLOOM: MAS' Newest Blockchain Initiative</h4>
-                        <a href="#" class="read-more">Read More</a>
+                        <a href="bloom-article.html" class="read-more">Read More</a>
                     </div>
                 </div>
                 <div class="side-article">
@@ -562,7 +717,7 @@
                             <span>October 12, 2025</span>
                         </div>
                         <h4>S&P 500 Declines Amid Renewed U.S.-China Trade Concerns</h4>
-                        <a href="#" class="read-more">Read More</a>
+                        <a href="sp500-article.html" class="read-more">Read More</a>
                     </div>
                 </div>
             </div>
@@ -582,7 +737,7 @@
                     </div>
                     <h3>Nvidia Valuation Analysis: Comparing Industry Peers</h3>
                     <p>Detailed comparable analysis of Nvidia against AMD, Broadcom and other semiconductor companies as NVDA approaches its quarterly earnings.</p>
-                    <a href="#" class="read-more">Read Analysis</a>
+                    <a href="nvidia-article.html" class="read-more">Read Analysis</a>
                 </div>
             </div>
             <div class="news-card">
@@ -594,7 +749,7 @@
                     </div>
                     <h3>Inflation Data Sparks Stock Market Rally</h3>
                     <p>U.S. September CPI comes in lower than expected at 3.0%, contributing to record highs for major indices despite rising gasoline prices.</p>
-                    <a href="#" class="read-more">Read Analysis</a>
+                    <a href="inflation-article.html" class="read-more">Read Analysis</a>
                 </div>
             </div>
             <div class="news-card">
@@ -606,7 +761,7 @@
                     </div>
                     <h3>MAS BLOOM Initiative: Revolutionizing Digital Settlements</h3>
                     <p>Analysis of Singapore's new blockchain-based settlement network and its potential impact on trade finance and multi-currency transactions.</p>
-                    <a href="#" class="read-more">Read Analysis</a>
+                    <a href="bloom-article.html" class="read-more">Read Analysis</a>
                 </div>
             </div>
         </div>
@@ -619,7 +774,7 @@
                 <h2>About Garcia Asset Strategies</h2>
                 <p>We are a student-led independent equity research group founded in 2025 that provides financial commentary dedicated to providing clear, engaging and understandable insights on the markets, companies and financial developments.</p>
                 <p>At Garcia Asset Strategies, we explore the stories driving our global economy, providing you with accessible analyses that goes beyond the numbers.</p>
-                <a href="#contact" class="cta-button">Get In Touch</a>
+                <a href="contact.html" class="cta-button">Get In Touch</a>
             </div>
         </div>
     </section>
@@ -643,34 +798,6 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section class="container" id="contact" style="padding: 50px 0;">
-        <h2 class="section-title">Contact Us</h2>
-        <div style="max-width: 600px; margin: 0 auto; background: white; padding: 30px; border-radius: 4px; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
-            <form id="contact-form">
-                <div style="margin-bottom: 20px;">
-                    <label for="name" style="display: block; margin-bottom: 5px; font-weight: bold;">Name (required)</label>
-                    <input type="text" id="name" required style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px;">
-                </div>
-                <div style="margin-bottom: 20px;">
-                    <label for="email" style="display: block; margin-bottom: 5px; font-weight: bold;">Email (required)</label>
-                    <input type="email" id="email" required style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px;">
-                </div>
-                <div style="margin-bottom: 20px;">
-                    <label for="message" style="display: block; margin-bottom: 5px; font-weight: bold;">Message (required)</label>
-                    <textarea id="message" required rows="5" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px;"></textarea>
-                </div>
-                <div style="margin-bottom: 20px;">
-                    <label style="display: flex; align-items: flex-start;">
-                        <input type="checkbox" required style="margin-right: 10px; margin-top: 3px;">
-                        <span>I confirm that this message is not spam and consent to my contact information being used to respond to this inquiry or for related purposes. (required)</span>
-                    </label>
-                </div>
-                <button type="submit" style="background-color: #1a365d; color: white; border: none; padding: 12px 25px; border-radius: 4px; cursor: pointer; font-weight: bold; width: 100%;">Send Message</button>
-            </form>
-        </div>
-    </section>
-
     <!-- Footer -->
     <footer>
         <div class="container">
@@ -683,20 +810,20 @@
                 <div class="footer-links">
                     <h4>Quick Links</h4>
                     <ul>
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#news">News & Analysis</a></li>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="news.html">News & Analysis</a></li>
                         <li><a href="#about">About Us</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                        <li><a href="#subscribe">Subscribe</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="subscribe.html">Subscribe</a></li>
                     </ul>
                 </div>
                 <div class="footer-links">
                     <h4>Recent Analysis</h4>
                     <ul>
-                        <li><a href="#">Nvidia Exceeds $5 Trillion Market Cap</a></li>
-                        <li><a href="#">U.S. September Inflation Report</a></li>
-                        <li><a href="#">MAS BLOOM Blockchain Initiative</a></li>
-                        <li><a href="#">U.S.-China Trade Concerns</a></li>
+                        <li><a href="nvidia-article.html">Nvidia Exceeds $5 Trillion Market Cap</a></li>
+                        <li><a href="inflation-article.html">U.S. September Inflation Report</a></li>
+                        <li><a href="bloom-article.html">MAS BLOOM Blockchain Initiative</a></li>
+                        <li><a href="sp500-article.html">U.S.-China Trade Concerns</a></li>
                     </ul>
                 </div>
             </div>
@@ -729,13 +856,6 @@
                     });
                 }
             });
-        });
-
-        // Contact form submission
-        document.getElementById('contact-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Thank you for your message. We will get back to you soon.');
-            this.reset();
         });
 
         // Newsletter subscription
