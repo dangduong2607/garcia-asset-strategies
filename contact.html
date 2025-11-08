@@ -26,7 +26,7 @@
             padding: 0 20px;
         }
 
-        /* Header Styles */
+        /* Header Styles - IMPROVED */
         header {
             background-color: #1a365d;
             color: white;
@@ -47,20 +47,31 @@
         .logo {
             display: flex;
             align-items: center;
+            text-decoration: none;
+            color: white;
         }
 
         .logo-img {
-            height: 40px;
-            margin-right: 10px;
+            height: 50px;
+            margin-right: 15px;
+            border-radius: 4px;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
         }
 
         .logo h1 {
-            font-size: 24px;
+            font-size: 22px;
             font-weight: bold;
+            line-height: 1.2;
         }
 
         .logo span {
             color: #d4af37;
+            font-size: 14px;
+            font-weight: normal;
         }
 
         .nav-links {
@@ -70,6 +81,7 @@
 
         .nav-links li {
             margin-left: 25px;
+            position: relative;
         }
 
         .nav-links a {
@@ -78,16 +90,34 @@
             font-weight: 500;
             font-size: 16px;
             transition: color 0.3s;
+            padding: 8px 0;
+            display: block;
         }
 
         .nav-links a:hover {
             color: #d4af37;
         }
 
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: #d4af37;
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
         .mobile-menu {
             display: none;
             font-size: 24px;
             cursor: pointer;
+            color: white;
         }
 
         /* Contact Form Styles */
@@ -294,6 +324,7 @@
                 background-color: #1a365d;
                 flex-direction: column;
                 padding: 20px;
+                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
             }
             
             .nav-links.active {
@@ -334,20 +365,23 @@
     </style>
 </head>
 <body>
-    <!-- Header -->
+    <!-- Header - UPDATED TO MATCH INDEX.HTML -->
     <header>
         <div class="container">
             <div class="top-header">
-                <div class="logo">
-                    <img src="https://garciaassetstrategieshome.wordpress.com/wp-content/uploads/2025/10/gas-logo.png?w=1024" alt="Garcia Asset Strategies" class="logo-img">
-                    <h1>GARCIA ASSET STRATEGIES <span>Value in Wealth</span></h1>
-                </div>
+                <a href="index.html" class="logo">
+                    <img src="https://media.licdn.com/dms/image/v2/D560BAQFLEM6aFr4RAA/company-logo_200_200/B56Zo7hBojJsAI-/0/1761935104976?e=1764201600&v=beta&t=8CC076yFsXam4sRbPiSlsW6WGoMLIxksF9heQgnElkg" alt="Garcia Asset Strategies" class="logo-img">
+                    <div class="logo-text">
+                        <h1>GARCIA ASSET STRATEGIES</h1>
+                        <span>Value in Wealth</span>
+                    </div>
+                </a>
                 <nav>
                     <ul class="nav-links">
                         <li><a href="index.html">Home</a></li>
                         <li><a href="news.html">News</a></li>
                         <li><a href="index.html#about">About</a></li>
-                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="contact.html" class="active">Contact Us</a></li>
                         <li><a href="subscribe.html">Subscribe</a></li>
                     </ul>
                     <div class="mobile-menu">
