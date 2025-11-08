@@ -3,21 +3,456 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>News - Garcia Asset Strategies</title>
+    <title>News & Analysis - Garcia Asset Strategies</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* Same CSS as index.html */
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Georgia', 'Times New Roman', serif;
+        }
+
+        body {
+            background-color: #f8f8f8;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: #1a365d;
+            color: white;
+            border-bottom: 3px solid #d4af37;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .top-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-img {
+            height: 40px;
+            margin-right: 10px;
+        }
+
+        .logo h1 {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .logo span {
+            color: #d4af37;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 25px;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 16px;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #d4af37;
+        }
+
+        .mobile-menu {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(rgba(26, 54, 93, 0.9), rgba(26, 54, 93, 0.9)), url('https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .page-header h1 {
+            font-size: 42px;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .page-header p {
+            font-size: 20px;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* News Grid */
+        .section-title {
+            font-size: 28px;
+            margin: 50px 0 30px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #d4af37;
+            color: #1a365d;
+        }
+
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .news-card {
+            background: white;
+            border-radius: 4px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .news-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .news-image {
+            height: 200px;
+            background-color: #e0e0e0;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .news-content {
+            padding: 20px;
+        }
+
+        .article-meta {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            font-size: 14px;
+            color: #666;
+        }
+
+        .news-content h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: #1a365d;
+        }
+
+        .news-content p {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        .read-more {
+            color: #1a365d;
+            font-weight: bold;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .read-more i {
+            margin-left: 5px;
+            transition: transform 0.3s;
+        }
+
+        .read-more:hover i {
+            transform: translateX(5px);
+        }
+
+        /* Category Filter */
+        .category-filter {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .category-btn {
+            background: white;
+            border: 1px solid #ddd;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .category-btn.active, .category-btn:hover {
+            background-color: #1a365d;
+            color: white;
+            border-color: #1a365d;
+        }
+
+        /* Newsletter */
+        .newsletter {
+            background-color: white;
+            padding: 50px 0;
+            text-align: center;
+            border-top: 1px solid #e0e0e0;
+            border-bottom: 1px solid #e0e0e0;
+            margin-top: 50px;
+        }
+
+        .newsletter h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: #1a365d;
+        }
+
+        .newsletter p {
+            max-width: 600px;
+            margin: 0 auto 30px;
+            color: #666;
+        }
+
+        .subscribe-form {
+            display: flex;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .subscribe-form input {
+            flex: 1;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-right: none;
+            border-radius: 4px 0 0 4px;
+            font-size: 16px;
+        }
+
+        .subscribe-form button {
+            background-color: #1a365d;
+            color: white;
+            border: none;
+            padding: 0 25px;
+            border-radius: 0 4px 4px 0;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .subscribe-form button:hover {
+            background-color: #152642;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #0f1f38;
+            color: white;
+            padding: 50px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-logo h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+
+        .footer-logo span {
+            color: #d4af37;
+        }
+
+        .footer-logo p {
+            color: #aaa;
+            margin-bottom: 20px;
+        }
+
+        .footer-links h4 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: #d4af37;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: #aaa;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #2d3748;
+            padding-top: 20px;
+            text-align: center;
+            color: #aaa;
+            font-size: 14px;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .news-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            .footer-logo {
+                grid-column: 1 / span 2;
+                margin-bottom: 20px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background-color: #1a365d;
+                flex-direction: column;
+                padding: 20px;
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .nav-links li {
+                margin: 10px 0;
+            }
+            
+            .mobile-menu {
+                display: block;
+            }
+            
+            .page-header h1 {
+                font-size: 32px;
+            }
+            
+            .page-header p {
+                font-size: 18px;
+            }
+            
+            .news-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-logo {
+                grid-column: 1;
+            }
+            
+            .subscribe-form {
+                flex-direction: column;
+            }
+            
+            .subscribe-form input {
+                border-right: 1px solid #ddd;
+                border-radius: 4px;
+                margin-bottom: 10px;
+            }
+            
+            .subscribe-form button {
+                border-radius: 4px;
+                padding: 12px;
+            }
+        }
     </style>
 </head>
 <body>
-    <!-- Same header as index.html -->
-    
-    <section class="container" style="padding: 50px 0;">
-        <a href="index.html" class="back-to-news"><i class="fas fa-arrow-left"></i> Back to Home</a>
-        <h1 class="section-title">All News & Analysis</h1>
-        
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="top-header">
+                <div class="logo">
+                    <img src="https://garciaassetstrategieshome.wordpress.com/wp-content/uploads/2025/10/gas-logo.png?w=1024" alt="Garcia Asset Strategies" class="logo-img">
+                    <h1>GARCIA ASSET STRATEGIES <span>Value in Wealth</span></h1>
+                </div>
+                <nav>
+                    <ul class="nav-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="news.html" class="active">News</a></li>
+                        <li><a href="index.html#about">About</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="subscribe.html">Subscribe</a></li>
+                    </ul>
+                    <div class="mobile-menu">
+                        <i class="fas fa-bars"></i>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Market Insights & Analysis</h1>
+            <p>Stay informed with our latest research and financial commentary</p>
+        </div>
+    </section>
+
+    <!-- Category Filter -->
+    <section class="container">
+        <div class="category-filter">
+            <button class="category-btn active" data-category="all">All Articles</button>
+            <button class="category-btn" data-category="analysis">Analysis</button>
+            <button class="category-btn" data-category="markets">Markets</button>
+            <button class="category-btn" data-category="blockchain">Blockchain</button>
+            <button class="category-btn" data-category="ai">AI</button>
+            <button class="category-btn" data-category="united-states">United States</button>
+        </div>
+    </section>
+
+    <!-- News Grid -->
+    <section class="container">
+        <h2 class="section-title">Latest Analysis</h2>
         <div class="news-grid">
-            <div class="news-card">
+            <div class="news-card" data-category="analysis,ai,united-states">
                 <div class="news-image" style="background-image: url('https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80');"></div>
                 <div class="news-content">
                     <div class="article-meta">
@@ -29,7 +464,7 @@
                     <a href="nvidia-article.html" class="read-more">Read Full Analysis</a>
                 </div>
             </div>
-            <div class="news-card">
+            <div class="news-card" data-category="markets,united-states">
                 <div class="news-image" style="background-image: url('https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80');"></div>
                 <div class="news-content">
                     <div class="article-meta">
@@ -41,7 +476,7 @@
                     <a href="inflation-article.html" class="read-more">Read Analysis</a>
                 </div>
             </div>
-            <div class="news-card">
+            <div class="news-card" data-category="analysis,blockchain">
                 <div class="news-image" style="background-image: url('https://images.unsplash.com/photo-1639762681485-074b7f938ba0?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80');"></div>
                 <div class="news-content">
                     <div class="article-meta">
@@ -53,7 +488,7 @@
                     <a href="bloom-article.html" class="read-more">Read Analysis</a>
                 </div>
             </div>
-            <div class="news-card">
+            <div class="news-card" data-category="markets,united-states">
                 <div class="news-image" style="background-image: url('https://images.unsplash.com/photo-1611224923853-80b023f02d71?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80');"></div>
                 <div class="news-content">
                     <div class="article-meta">
@@ -65,15 +500,122 @@
                     <a href="sp500-article.html" class="read-more">Read Analysis</a>
                 </div>
             </div>
+            <div class="news-card" data-category="analysis,markets">
+                <div class="news-image" style="background-image: url('https://images.unsplash.com/photo-1614991128613-eda304a2f8c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80');"></div>
+                <div class="news-content">
+                    <div class="article-meta">
+                        <span>October 5, 2025</span>
+                        <span>ANALYSIS</span>
+                    </div>
+                    <h3>Federal Reserve Holds Rates Steady Amid Economic Uncertainty</h3>
+                    <p>The Federal Reserve maintained interest rates at current levels while signaling potential future adjustments based on inflation data.</p>
+                    <a href="#" class="read-more">Read Analysis</a>
+                </div>
+            </div>
+            <div class="news-card" data-category="blockchain">
+                <div class="news-image" style="background-image: url('https://images.unsplash.com/photo-1639762681057-40897d5bcfc1?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80');"></div>
+                <div class="news-content">
+                    <div class="article-meta">
+                        <span>September 28, 2025</span>
+                        <span>BLOCKCHAIN</span>
+                    </div>
+                    <h3>Central Bank Digital Currencies: Global Adoption Trends</h3>
+                    <p>Analysis of CBDC developments worldwide and their potential impact on traditional banking systems and monetary policy.</p>
+                    <a href="#" class="read-more">Read Analysis</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="newsletter">
+        <div class="container">
+            <h2>Get the latest updates from Garcia Asset Strategies</h2>
+            <p>Stay informed with our clear, engaging financial insights and market analysis.</p>
+            <form class="subscribe-form">
+                <input type="email" placeholder="Type your email..." required>
+                <button type="submit">Subscribe</button>
+            </form>
         </div>
     </section>
     
-    <!-- Same footer as index.html -->
-    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>GARCIA ASSET STRATEGIES <span>Value in Wealth</span></h3>
+                    <p>Student-led independent equity research providing clear, engaging financial insights and market analysis.</p>
+                    <p>We are a TrustedSite Verified Business</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="news.html">News & Analysis</a></li>
+                        <li><a href="index.html#about">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="subscribe.html">Subscribe</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Recent Analysis</h4>
+                    <ul>
+                        <li><a href="nvidia-article.html">Nvidia Exceeds $5 Trillion Market Cap</a></li>
+                        <li><a href="inflation-article.html">U.S. September Inflation Report</a></li>
+                        <li><a href="bloom-article.html">MAS BLOOM Blockchain Initiative</a></li>
+                        <li><a href="sp500-article.html">U.S.-China Trade Concerns</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>Copyright © 2025-present Garcia Asset Strategies. All rights reserved.</p>
+                <p>Not licensed by MAS. For informational purposes only, not financial advice. We do not make any financial recommendations. Seek licensed guidance before investing.</p>
+            </div>
+        </div>
+    </footer>
+
     <script>
         // Mobile menu toggle
         document.querySelector('.mobile-menu').addEventListener('click', function() {
             document.querySelector('.nav-links').classList.toggle('active');
+        });
+
+        // Category filter functionality
+        document.querySelectorAll('.category-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                // Remove active class from all buttons
+                document.querySelectorAll('.category-btn').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                
+                // Add active class to clicked button
+                this.classList.add('active');
+                
+                const category = this.getAttribute('data-category');
+                const articles = document.querySelectorAll('.news-card');
+                
+                articles.forEach(article => {
+                    if (category === 'all') {
+                        article.style.display = 'block';
+                    } else {
+                        const articleCategories = article.getAttribute('data-category').split(',');
+                        if (articleCategories.includes(category)) {
+                            article.style.display = 'block';
+                        } else {
+                            article.style.display = 'none';
+                        }
+                    }
+                });
+            });
+        });
+
+        // Newsletter subscription
+        document.querySelector('.subscribe-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = this.querySelector('input[type="email"]').value;
+            alert(`Thank you for subscribing with ${email}. You will receive a confirmation email shortly.`);
+            this.reset();
         });
     </script>
 </body>
