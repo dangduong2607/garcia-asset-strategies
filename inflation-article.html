@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>U.S. September Inflation Lower Than Expected, Stocks Rise - Garcia Asset Strategies</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Georgia', 'Times New Roman', serif;
+        }
+
+        body {
+            background-color: #f8f8f8;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: #1a365d;
+            color: white;
+            border-bottom: 3px solid #d4af37;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .top-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-img {
+            height: 40px;
+            margin-right: 10px;
+        }
+
+        .logo h1 {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .logo span {
+            color: #d4af37;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 25px;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 16px;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #d4af37;
+        }
+
+        .mobile-menu {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        /* Article Styles */
+        .news-article {
+            background: white;
+            padding: 40px;
+            border-radius: 4px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            margin-bottom: 50px;
+        }
+
+        .news-article h1 {
+            font-size: 32px;
+            margin-bottom: 20px;
+            color: #1a365d;
+        }
+
+        .news-article .article-meta {
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .news-article h2 {
+            font-size: 24px;
+            margin: 30px 0 15px;
+            color: #1a365d;
+        }
+
+        .news-article p {
+            margin-bottom: 15px;
+            line-height: 1.8;
+        }
+
+        .news-article ul, .news-article ol {
+            margin-bottom: 20px;
+            padding-left: 20px;
+        }
+
+        .news-article li {
+            margin-bottom: 10px;
+        }
+
+        .article-image {
+            height: 400px;
+            background-color: #e0e0e0;
+            background-size: cover;
+            background-position: center;
+            margin-bottom: 30px;
+            border-radius: 4px;
+        }
+
+        .back-to-news {
+            display: inline-block;
+            margin-bottom: 30px;
+            color: #1a365d;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .back-to-news i {
+            margin-right: 5px;
+        }
+
+        .read-more {
+            color: #1a365d;
+            font-weight: bold;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .read-more i {
+            margin-left: 5px;
+            transition: transform 0.3s;
+        }
+
+        .read-more:hover i {
+            transform: translateX(5px);
+        }
+
+        .disclaimer {
+            background-color: #f8f8f8;
+            padding: 20px;
+            border-left: 4px solid #d4af37;
+            margin: 30px 0;
+            font-size: 14px;
+            color: #666;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #0f1f38;
+            color: white;
+            padding: 50px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-logo h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+
+        .footer-logo span {
+            color: #d4af37;
+        }
+
+        .footer-logo p {
+            color: #aaa;
+            margin-bottom: 20px;
+        }
+
+        .footer-links h4 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: #d4af37;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: #aaa;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #2d3748;
+            padding-top: 20px;
+            text-align: center;
+            color: #aaa;
+            font-size: 14px;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background-color: #1a365d;
+                flex-direction: column;
+                padding: 20px;
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .nav-links li {
+                margin: 10px 0;
+            }
+            
+            .mobile-menu {
+                display: block;
+            }
+            
+            .news-article {
+                padding: 20px;
+            }
+            
+            .article-image {
+                height: 250px;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="top-header">
+                <div class="logo">
+                    <img src="https://garciaassetstrategieshome.wordpress.com/wp-content/uploads/2025/10/gas-logo.png?w=1024" alt="Garcia Asset Strategies" class="logo-img">
+                    <h1>GARCIA ASSET STRATEGIES <span>Value in Wealth</span></h1>
+                </div>
+                <nav>
+                    <ul class="nav-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="news.html">News</a></li>
+                        <li><a href="index.html#about">About</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="subscribe.html">Subscribe</a></li>
+                    </ul>
+                    <div class="mobile-menu">
+                        <i class="fas fa-bars"></i>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Article Content -->
+    <section class="container" style="padding: 50px 0;">
+        <a href="news.html" class="back-to-news"><i class="fas fa-arrow-left"></i> Back to News</a>
+        
+        <div class="news-article">
+            <div class="article-meta">
+                <span>October 26, 2025</span>
+                <span>MARKETS</span>
+            </div>
+            <h1>U.S. September Inflation Lower Than Expected, Stocks Rise</h1>
+            
+            <div class="article-image" style="background-image: url('https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');"></div>
+            
+            <p>The U.S. Bureau of Labor Statistics (BLS) reported an increase in the year-on-year Consumer Price Index (CPI) with goods on average costing 3.0% more in September 2025 compared to September 2024. This is an increase from the 2.9% CPI in August. Gasoline prices contributed significantly, rising 4.1% over the month.</p>
+            
+            <p>In addition to sector-specific changes, economists believe the imposition of tariffs has caused rising costs across various categories, adding to overall inflation. Current estimations on the impact of the tariffs suggest an approximate 0.4 percentage point addition to inflation.</p>
+            
+            <p>Despite the increase, it remains below analyst expectations, contributing to gains in U.S. stocks. Major stock indices closed at record highs with the Dow Jones (DJIA) closing above 47,000 for the first time.</p>
+            
+            <p>Although inflation still remains above the 2% target of the Federal Reserve, it is not accelerating as quickly as expected.</p>
+            
+            <p>Nonfarm payroll employment increased by 22,000 jobs in August, which is significantly lower than the 79,000 in July and a forecasted 80,000 for August. Analysts believe the latest inflation data coupled with weakened job growth could justify potential future interest rate cuts in order to increase employment.</p>
+            
+            <div class="disclaimer">
+                <p><em>Photo: "Federal Reserve Building" by Tim Evanson is licensed under CC BY-SA 2.0</em></p>
+            </div>
+            
+            <div class="article-meta" style="margin-top: 40px;">
+                <span>Posted in United States</span>
+            </div>
+        </div>
+        
+        <div style="display: flex; justify-content: space-between; margin-top: 50px;">
+            <a href="bloom-article.html" class="read-more"><i class="fas fa-arrow-left"></i> Previous: MAS BLOOM Initiative</a>
+            <a href="nvidia-article.html" class="read-more">Next: Nvidia Market Cap <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>GARCIA ASSET STRATEGIES <span>Value in Wealth</span></h3>
+                    <p>Student-led independent equity research providing clear, engaging financial insights and market analysis.</p>
+                    <p>We are a TrustedSite Verified Business</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="news.html">News & Analysis</a></li>
+                        <li><a href="index.html#about">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="subscribe.html">Subscribe</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Recent Analysis</h4>
+                    <ul>
+                        <li><a href="nvidia-article.html">Nvidia Exceeds $5 Trillion Market Cap</a></li>
+                        <li><a href="inflation-article.html">U.S. September Inflation Report</a></li>
+                        <li><a href="bloom-article.html">MAS BLOOM Blockchain Initiative</a></li>
+                        <li><a href="sp500-article.html">U.S.-China Trade Concerns</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>Copyright © 2025-present Garcia Asset Strategies. All rights reserved.</p>
+                <p>Not licensed by MAS. For informational purposes only, not financial advice. We do not make any financial recommendations. Seek licensed guidance before investing.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.querySelector('.mobile-menu').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
