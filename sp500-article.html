@@ -6,12 +6,397 @@
     <title>S&P 500 Declines Amid Renewed U.S.-China Trade Concerns - Garcia Asset Strategies</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* Same CSS as index.html */
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Georgia', 'Times New Roman', serif;
+        }
+
+        body {
+            background-color: #f8f8f8;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: #1a365d;
+            color: white;
+            border-bottom: 3px solid #d4af37;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .top-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-img {
+            height: 40px;
+            margin-right: 10px;
+        }
+
+        .logo h1 {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .logo span {
+            color: #d4af37;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 25px;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 16px;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #d4af37;
+        }
+
+        .mobile-menu {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        /* Article Styles */
+        .news-article {
+            background: white;
+            padding: 40px;
+            border-radius: 4px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            margin-bottom: 50px;
+        }
+
+        .news-article h1 {
+            font-size: 32px;
+            margin-bottom: 20px;
+            color: #1a365d;
+        }
+
+        .news-article .article-meta {
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .news-article h2 {
+            font-size: 24px;
+            margin: 30px 0 15px;
+            color: #1a365d;
+        }
+
+        .news-article h3 {
+            font-size: 20px;
+            margin: 25px 0 15px;
+            color: #1a365d;
+        }
+
+        .news-article p {
+            margin-bottom: 15px;
+            line-height: 1.8;
+        }
+
+        .news-article ul, .news-article ol {
+            margin-bottom: 20px;
+            padding-left: 20px;
+        }
+
+        .news-article li {
+            margin-bottom: 10px;
+        }
+
+        .article-image {
+            height: 400px;
+            background-color: #e0e0e0;
+            background-size: cover;
+            background-position: center;
+            margin-bottom: 30px;
+            border-radius: 4px;
+        }
+
+        .back-to-news {
+            display: inline-block;
+            margin-bottom: 30px;
+            color: #1a365d;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .back-to-news i {
+            margin-right: 5px;
+        }
+
+        .read-more {
+            color: #1a365d;
+            font-weight: bold;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            padding: 8px 16px;
+            border: 1px solid #1a365d;
+            border-radius: 4px;
+            transition: all 0.3s;
+        }
+
+        .read-more:hover {
+            background-color: #1a365d;
+            color: white;
+        }
+
+        .read-more i {
+            margin-left: 5px;
+            transition: transform 0.3s;
+        }
+
+        .read-more:hover i {
+            transform: translateX(5px);
+        }
+
+        .disclaimer {
+            background-color: #f8f8f8;
+            padding: 20px;
+            border-left: 4px solid #d4af37;
+            margin: 30px 0;
+            font-size: 14px;
+            color: #666;
+        }
+
+        .update-box {
+            background-color: #e8f4fd;
+            padding: 20px;
+            border-radius: 4px;
+            margin: 30px 0;
+            border-left: 4px solid #2196F3;
+        }
+
+        .update-box h3 {
+            color: #2196F3;
+            margin-top: 0;
+        }
+
+        /* Impact Section */
+        .impact-section {
+            background-color: #f0f7ff;
+            padding: 25px;
+            border-radius: 4px;
+            margin: 30px 0;
+            border-left: 4px solid #1a365d;
+        }
+
+        .impact-section h3 {
+            color: #1a365d;
+            margin-top: 0;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #0f1f38;
+            color: white;
+            padding: 50px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-logo h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+
+        .footer-logo span {
+            color: #d4af37;
+        }
+
+        .footer-logo p {
+            color: #aaa;
+            margin-bottom: 20px;
+        }
+
+        .footer-links h4 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: #d4af37;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: #aaa;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #2d3748;
+            padding-top: 20px;
+            text-align: center;
+            color: #aaa;
+            font-size: 14px;
+        }
+
+        /* Newsletter */
+        .newsletter {
+            background-color: white;
+            padding: 50px 0;
+            text-align: center;
+            border-top: 1px solid #e0e0e0;
+            border-bottom: 1px solid #e0e0e0;
+            margin-top: 50px;
+        }
+
+        .newsletter h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: #1a365d;
+        }
+
+        .newsletter p {
+            max-width: 600px;
+            margin: 0 auto 30px;
+            color: #666;
+        }
+
+        .subscribe-form {
+            display: flex;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .subscribe-form input {
+            flex: 1;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-right: none;
+            border-radius: 4px 0 0 4px;
+            font-size: 16px;
+        }
+
+        .subscribe-form button {
+            background-color: #1a365d;
+            color: white;
+            border: none;
+            padding: 0 25px;
+            border-radius: 0 4px 4px 0;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .subscribe-form button:hover {
+            background-color: #152642;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background-color: #1a365d;
+                flex-direction: column;
+                padding: 20px;
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .nav-links li {
+                margin: 10px 0;
+            }
+            
+            .mobile-menu {
+                display: block;
+            }
+            
+            .news-article {
+                padding: 20px;
+            }
+            
+            .article-image {
+                height: 250px;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
 </head>
 <body>
-    <!-- Same header as index.html -->
-    
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="top-header">
+                <div class="logo">
+                    <img src="https://garciaassetstrategieshome.wordpress.com/wp-content/uploads/2025/10/gas-logo.png?w=1024" alt="Garcia Asset Strategies" class="logo-img">
+                    <h1>GARCIA ASSET STRATEGIES <span>Value in Wealth</span></h1>
+                </div>
+                <nav>
+                    <ul class="nav-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="news.html">News</a></li>
+                        <li><a href="index.html#about">About</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="subscribe.html">Subscribe</a></li>
+                    </ul>
+                    <div class="mobile-menu">
+                        <i class="fas fa-bars"></i>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Article Content -->
     <section class="container" style="padding: 50px 0;">
         <a href="news.html" class="back-to-news"><i class="fas fa-arrow-left"></i> Back to News</a>
         
@@ -22,7 +407,7 @@
             </div>
             <h1>S&P 500 Declines Amid Renewed U.S.-China Trade Concerns</h1>
             
-            <div class="article-image" style="height: 400px; margin-bottom: 30px; background-image: url('https://images.unsplash.com/photo-1611224923853-80b023f02d71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');"></div>
+            <div class="article-image" style="background-image: url('https://images.unsplash.com/photo-1611224923853-80b023f02d71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');"></div>
             
             <p>On 11 October 2025, U.S. President Donald Trump announced plans via Truth Social to impose an additional 100% tariff on China, alongside export controls on all critical software.</p>
             
@@ -30,14 +415,25 @@
             
             <p>The S&P 500 lost over $2 trillion in market value amid investor concerns about higher operational costs for companies, especially those dependent on imported materials or goods.</p>
             
+            <div class="impact-section">
+                <h3>Market Impact</h3>
+                <ul>
+                    <li>S&P 500 lost over $2 trillion in market value</li>
+                    <li>Technology and manufacturing sectors most affected</li>
+                    <li>Investor concerns about higher operational costs</li>
+                    <li>Potential slowdown in economic growth</li>
+                </ul>
+            </div>
+            
             <p>Investors anticipate increased costs to weigh on corporate earnings growth. Certain sectors like technology and manufacturing, with high import exposure, are expected to be more vulnerable to the impact of the tariffs.</p>
             
             <p>Economists note that heightened tariffs may slow economic growth by reducing consumer spending due to higher prices.</p>
             
             <p>Investors will be closely monitoring new developments in the coming weeks, given their potential to affect supply chains, profitability, and broader market valuations.</p>
             
-            <div class="disclaimer" style="margin: 30px 0; background-color: #e8f4fd; border-left-color: #2196F3;">
-                <p><strong>UPDATE:</strong> On 13 October 2025, SGT, Trump announced that the "U.S.A. wants to help China, not hurt it".</p>
+            <div class="update-box">
+                <h3>UPDATE</h3>
+                <p>On 13 October 2025, SGT, Trump announced that the "U.S.A. wants to help China, not hurt it".</p>
             </div>
             
             <div class="article-meta" style="margin-top: 40px;">
@@ -47,16 +443,70 @@
         
         <div style="display: flex; justify-content: space-between; margin-top: 50px;">
             <a href="bloom-article.html" class="read-more"><i class="fas fa-arrow-left"></i> Previous: MAS BLOOM Initiative</a>
-            <a href="inflation-article.html" class="read-more">Next: U.S. September Inflation <i class="fas fa-arrow-right"></i></a>
+            <a href="inflation-article.html" class="read-more">Next: U.S. Inflation Report <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="newsletter">
+        <div class="container">
+            <h2>Get the latest updates from Garcia Asset Strategies</h2>
+            <p>Stay informed with our clear, engaging financial insights and market analysis.</p>
+            <form class="subscribe-form">
+                <input type="email" placeholder="Type your email..." required>
+                <button type="submit">Subscribe</button>
+            </form>
         </div>
     </section>
     
-    <!-- Same footer as index.html -->
-    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>GARCIA ASSET STRATEGIES <span>Value in Wealth</span></h3>
+                    <p>Student-led independent equity research providing clear, engaging financial insights and market analysis.</p>
+                    <p>We are a TrustedSite Verified Business</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="news.html">News & Analysis</a></li>
+                        <li><a href="index.html#about">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="subscribe.html">Subscribe</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Recent Analysis</h4>
+                    <ul>
+                        <li><a href="nvidia-article.html">Nvidia Exceeds $5 Trillion Market Cap</a></li>
+                        <li><a href="inflation-article.html">U.S. September Inflation Report</a></li>
+                        <li><a href="bloom-article.html">MAS BLOOM Blockchain Initiative</a></li>
+                        <li><a href="sp500-article.html">U.S.-China Trade Concerns</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>Copyright © 2025-present Garcia Asset Strategies. All rights reserved.</p>
+                <p>Not licensed by MAS. For informational purposes only, not financial advice. We do not make any financial recommendations. Seek licensed guidance before investing.</p>
+            </div>
+        </div>
+    </footer>
+
     <script>
         // Mobile menu toggle
         document.querySelector('.mobile-menu').addEventListener('click', function() {
             document.querySelector('.nav-links').classList.toggle('active');
+        });
+
+        // Newsletter subscription
+        document.querySelector('.subscribe-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = this.querySelector('input[type="email"]').value;
+            alert(`Thank you for subscribing with ${email}. You will receive a confirmation email shortly.`);
+            this.reset();
         });
     </script>
 </body>
