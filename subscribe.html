@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subscribe - Garcia Asset Strategies</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Same CSS as index.html */
+    </style>
+</head>
+<body>
+    <!-- Same header as index.html -->
+    
+    <section class="container" style="padding: 50px 0;">
+        <a href="index.html" class="back-to-news"><i class="fas fa-arrow-left"></i> Back to Home</a>
+        
+        <div class="news-article">
+            <h1>Subscribe</h1>
+            <p>Get the latest updates from Garcia Asset Strategies</p>
+            
+            <div class="newsletter" style="background: transparent; padding: 30px 0; border: none;">
+                <form class="subscribe-form" id="subscribe-form">
+                    <input type="email" placeholder="Type your email..." required>
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+            
+            <h2>Instructions</h2>
+            <ol>
+                <li>Fill in your email above and click "Subscribe"</li>
+                <li>Email will be sent to you to confirm your subscription. Be sure to check your spam.</li>
+                <li>In the email that was sent to you, click "Confirm email".</li>
+            </ol>
+            
+            <h2>Our Latest News</h2>
+            <p><a href="news.html">Click here to see all of our latest news</a></p>
+        </div>
+    </section>
+    
+    <!-- Same footer as index.html -->
+    
+    <script>
+        // Mobile menu toggle
+        document.querySelector('.mobile-menu').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+
+        // Subscription form
+        document.getElementById('subscribe-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = this.querySelector('input[type="email"]').value;
+            alert(`Thank you for subscribing with ${email}. You will receive a confirmation email shortly.`);
+            this.reset();
+        });
+    </script>
+</body>
+</html>
